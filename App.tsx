@@ -172,7 +172,6 @@ const App: React.FC = () => {
                     onNavigateToServices={() => navigateTo('services')}
                     onNavigateToUniverse={() => navigateTo('universe')}
                     onNavigateToMikaiMusic={() => navigateTo('mikai-music')}
-                    onNavigateToDashboard={() => navigateTo('dashboard')}
                 />
             )}
             <main>
@@ -235,7 +234,7 @@ const App: React.FC = () => {
                     )
                 )}
             </main>
-            {!isSpecialLayout && (currentView === 'home' || currentView === 'catalog') && <Footer onNavigateToDashboard={() => navigateTo('dashboard')} />}
+            {!isSpecialLayout && (currentView === 'home' || currentView === 'catalog') && <Footer />}
 
             {currentView === 'home' && (
                 <DiscountModal
@@ -243,6 +242,15 @@ const App: React.FC = () => {
                     onClose={closeModal}
                     onCtaClick={handleModalCtaClick}
                 />
+            )}
+
+            {/* Hidden entry point for Dashboard */}
+            {currentView === 'home' && (
+                <div
+                    className="fixed bottom-0 right-0 w-8 h-8 z-50 cursor-default opacity-0"
+                    onDoubleClick={() => navigateTo('dashboard')}
+                    title="Admin Area"
+                ></div>
             )}
         </div>
     );
