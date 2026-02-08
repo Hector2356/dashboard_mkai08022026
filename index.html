@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIK MUSIC - La Fábrica de Estrellas</title>
+  <meta name="description" content="The official website for MIK MUSIC, an independent record label. Discover our services, buy beats, and explore our artists. Inspired by artistic and modern music labels.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Microsoft Clarity Placeholder -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "mik_project_id");
+  </script>
+
+  <!-- Google Analytics 4 Placeholder -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TRACKING_ID');
+  </script>
+  
+  <script type="importmap">
+  {
+    "imports": {
+      "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+      "react/": "https://aistudiocdn.com/react@^19.2.0/",
+      "react": "https://aistudiocdn.com/react@^19.2.0",
+      "contentful": "https://aistudiocdn.com/contentful@^11.8.11"
+    }
+  }
+  </script>
+  
+  <style>
+    /* Custom CSS Styles */
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Custom Fonts */
+    .font-anton { font-family: 'Anton', sans-serif; }
+    .font-sans { font-family: 'Inter', sans-serif; }
+    .font-display { font-family: 'Space Grotesk', sans-serif; }
+
+    /* MIKAI Landing Specific Styles */
+    .glass {
+        background: rgba(242, 13, 70, 0.05);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(242, 13, 70, 0.2);
+        transition: all 0.3s ease;
+    }
+    .glass:hover {
+        background: rgba(242, 13, 70, 0.15);
+        border-color: rgba(242, 13, 70, 0.5);
+        transform: translateY(-2px);
+    }
+    .neon-text {
+        text-shadow: 0 0 10px rgba(242, 13, 70, 0.5), 0 0 20px rgba(242, 13, 70, 0.3);
+    }
+    .music-card-glow {
+        transition: all 0.5s ease;
+    }
+    .music-card-glow:hover {
+        box-shadow: 0 0 40px rgba(242, 13, 70, 0.4);
+        transform: translateY(-5px);
+    }
+
+    /* Neon Flicker Animation */
+    @keyframes neonFlicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 10px rgba(242, 13, 70, 0.8), 0 0 20px rgba(242, 13, 70, 0.5);
+      }
+      20%, 24%, 55% {
+        opacity: 0.8;
+        text-shadow: none;
+      }
+    }
+
+    .animate-neon-flicker {
+      animation: neonFlicker 4s infinite;
+    }
+
+    /* Custom Neon Glow Effects */
+    @layer utilities {
+      .text-shadow-lg {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 5px rgba(0,0,0,0.5);
+      }
+      .neon-glow-yellow { box-shadow: 0 0 5px theme('colors.mikai-lemon'), 0 0 20px theme('colors.mikai-lemon'); }
+      .neon-glow-violet { box-shadow: 0 0 5px theme('colors.violet.400'), 0 0 20px theme('colors.violet.500'); }
+      .neon-glow-mikai-red { box-shadow: 0 0 5px #f20d46, 0 0 20px #f20d46; }
+    }
+    
+    /* Tailwind Config */
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            'primary': '#f20d46',
+            'background-dark': '#080808',
+            'mikai-red': '#f20d46',
+            'mikai-lemon': '#fefe79',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            anton: ['Anton', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(0.8)' },
+              '50%': { opacity: '0.8', transform: 'scale(1.2)' },
+            },
+          }
+        }
+      }
+    }
+  </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-black">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
