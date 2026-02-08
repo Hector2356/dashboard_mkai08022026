@@ -27,8 +27,9 @@ import { initClient, fetchAllData } from './services/contentfulService';
 import type { Album, Service, Release, Testimonial, MikUniverseService, MikaiRelease, View, MikaiLandingData } from './types';
 
 // --- Contentful API Keys ---
-const CONTENTFUL_SPACE_ID = 'x89oyftevv1f';
-const CONTENTFUL_ACCESS_TOKEN = 'glb0_eY7fy2_YFoKaDhxb7v3j08WTvuopy6Wy5ybm1M';
+// --- Contentful API Keys ---
+const CONTENTFUL_SPACE_ID = import.meta.env.VITE_CONTENTFUL_SPACE_ID;
+const CONTENTFUL_ACCESS_TOKEN = import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN;
 
 // Define a type for all the data fetched from the CMS
 interface AppData {
